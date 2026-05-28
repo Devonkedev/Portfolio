@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+coverage/
+
+# Package manager caches / lockfiles that are usually local-only
+.npm/
+.pnpm-store/
+.yarn/
+.yarn-cache/
+bun.lockb
+
+# Vite / tooling caches
+.vite/
+.turbo/
+.eslintcache
+.tsbuildinfo
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Misc
+*.local
