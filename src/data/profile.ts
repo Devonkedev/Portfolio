@@ -251,7 +251,7 @@ export const leadership = [
   },
   {
     org: "Sapno Ke Pankh (‘Wings of Dreams’)",
-    orgNote: "NGO schooling primary-grade children across 20 Indian states",
+    orgNote: "NGO schooling primary-grade children",
     role: "STEM Tutor & Library Fundraiser",
     period: "Since 2020",
     points: [
