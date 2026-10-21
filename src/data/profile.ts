@@ -178,25 +178,25 @@ export const programs = [
     title: "Mathematics in Lean",
     org: "Euler's Circle",
     date: "Jun – Aug 2026",
-    desc: "One of 30 students worldwide, taught by Stanford PhD Simon Rubinstein-Salzedo, on a 25% scholarship. My capstone proved modular-arithmetic and gcd theorems by induction, contradiction and contrapositive, then formalized them in Lean so a computer checks every step.",
+    desc: "Under Dr. Felix Sefzig, proved multiple theorems and formalized them in Lean so a computer checks every step.",
   },
   {
     title: "University-Level Linear Algebra",
     org: "Stanford University (Online)",
     date: "Jun – Aug 2026",
-    desc: "A university-level linear algebra course.",
+    desc: "Under Dr. Margarita Kanarsky, a university-level, college-credit linear algebra course. Final grade: A.",
   },
   {
     title: "Number Theory: An Introduction to Higher Mathematics",
     org: "Summer @ Brown",
     date: "Jun – Jul 2025",
-    desc: "A pre-college course on number theory and how proofs work in higher mathematics.",
+    desc: "Under Brown Professor Dr. Mehdi Khorami, a pre-college course on number theory and how proofs work in higher mathematics.",
   },
   {
     title: "Transition to Proofs",
     org: "Euler's Circle",
     date: "Sept – Dec 2024",
-    desc: "Proof-writing and rigorous mathematical reasoning.",
+    desc: "One of 30 students worldwide, taught by Stanford PhD Simon Rubinstein-Salzedo, on a 25% scholarship. Proved modular arithmetic and gcd theorems.",
   },
   {
     title: "AI Scholars Program",
@@ -290,7 +290,7 @@ export const featuredAwards = [
   },
   {
     title: "Innovator Award",
-    detail: "The Shri Ram School, for MediPing",
+    detail: "The Shri Ram School, for MediPing. Also: Prayukti Award for Lateral Thinking (4 yrs), Triveni Award for Co-Curricular Activities, Srijan Award for CAS",
   },
   {
     title: "10 podium finishes in inter-school tech competitions",
@@ -334,7 +334,7 @@ export const schoolHonors = [
     year: "Grade 11 · 2025–26",
     topper: ["Mathematics AA HL", "Economics HL", "Chemistry SL"],
     excellence: ["Mathematics AA HL", "Economics HL", "Physics HL", "Chemistry SL"],
-    awards: ["Prayukti Award for Lateral Thinking", "Srijan Award for Co-curricular Activities"],
+    awards: ["Prayukti Award for Lateral Thinking", "Srijan Award for CAS"],
   },
   {
     year: "Grade 10 · 2024–25",
@@ -365,7 +365,7 @@ export const education = [
 ];
 
 export const skills = {
-  Programming: ["Python", "Java", "C++", "Flutter", "Web development", "Lean"],
+  Programming: ["Python", "Java", "C++", "Flutter", "React JS", "React Native", "Flask", "Pandas", "Web development", "Lean"],
   "Math & Data": ["Number theory", "Proof & formalization", "Statistics", "Time-series analysis"],
   Languages: ["English (fluent)", "Hindi (fluent)", "French (academic)"],
 };
