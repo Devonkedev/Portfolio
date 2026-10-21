@@ -190,7 +190,7 @@ export const programs = [
     title: "Number Theory: An Introduction to Higher Mathematics",
     org: "Summer @ Brown",
     date: "Jun – Jul 2025",
-    desc: "Under Brown Professor Dr. Mehdi Khorami, a pre-college course on number theory and how proofs work in higher mathematics.",
+    desc: "Under Brown Professor Dr. Mehdi Khor, a pre-college course on number theory and how proofs work in higher mathematics.",
   },
   {
     title: "Transition to Proofs",
@@ -240,7 +240,7 @@ export const leadership = [
   {
     org: "Megabyte Society, The Shri Ram School",
     orgNote: "The school's technology society",
-    role: "Head (Member in Grade 9, Secretary in Grade 11)",
+    role: "Head (Member in Grade 9 & 10, Secretary in Grade 11)",
     period: "Grade 9 – present",
     points: [
       "Headed ShriTeq, the inter-school tech fest: 10 events and about 2,000 attendees",
@@ -289,8 +289,8 @@ export const featuredAwards = [
     detail: "British Science Association, for MediPing and the COVID hotspot research",
   },
   {
-    title: "Innovator Award",
-    detail: "The Shri Ram School, for MediPing. Also: Prayukti Award for Lateral Thinking (4 yrs), Triveni Award for Co-Curricular Activities, Srijan Award for CAS",
+    title: "School Top Honors",
+    detail: "Innovator Award for MediPing. Prayukti Award for Lateral Thinking (4 yrs), Triveni Award for Co-Curricular Activities, Srijan Award for CAS",
   },
   {
     title: "10 podium finishes in inter-school tech competitions",

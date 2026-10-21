@@ -25,10 +25,9 @@ const Research = () => (
 
     <Section className="border-t border-border bg-secondary/40">
       <SectionHeading index="2" title="Academic programs" kicker="Most recent first." />
-      <ol className="relative border-l border-border ml-1.5 space-y-10">
+      <ol className="space-y-10">
         {programs.map((p) => (
-          <li key={p.title} className="pl-8 relative">
-            <span className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-background border-2 border-accent shadow-[0_0_0_4px_hsl(var(--accent)/0.12)]" />
+          <li key={p.title}>
             <Reveal>
               <p className="font-mono text-xs text-muted-foreground">{p.date}</p>
               <h3 className="mt-1 text-xl font-medium text-foreground">{p.title}</h3>
