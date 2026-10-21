@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
-const navItems = [
-  { label: "Home", path: "/" },
-  { label: "Research & Programs", path: "/research" },
+export const navItems = [
+  { label: "Research", path: "/research" },
+  { label: "Projects", path: "/projects" },
   { label: "Leadership", path: "/leadership" },
-  { label: "Projects & Competitions", path: "/extracurricular" },
+  { label: "Awards", path: "/awards" },
 ];
 
 const Navbar = () => {
@@ -16,71 +17,105 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handler);
+    const handler = () => setScrolled(window.scrollY > 8);
+    handler();
+    window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  useEffect(() => setIsOpen(false), [location]);
+  useEffect(() => setIsOpen(false), [location.pathname]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setIsOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen]);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-card/90 backdrop-blur-md shadow-sm border-b border-border" : "bg-transparent"
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-[background-color,border-color] duration-300 border-b ${
+        scrolled || isOpen ? "bg-background/85 backdrop-blur-md border-border" : "bg-transparent border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
-        <Link to="/" className="font-display text-lg font-semibold text-foreground tracking-tight">
-          DG
+      <nav className="container-page flex items-center justify-between h-16" aria-label="Main">
+        <Link to="/" className="flex items-baseline gap-2 group" aria-label="Devyansh Garg, home">
+          <span className="font-serif text-2xl leading-none text-foreground">Devyansh Garg</span>
         </Link>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
-            <Link
+            <NavLink
               key={item.path}
               to={item.path}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                location.pathname === item.path ? "text-accent" : "text-muted-foreground"
-              }`}
+              className={({ isActive }) =>
+                `relative px-3 py-1.5 text-sm rounded-full transition-colors ${
+                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                }`
+              }
             >
-              {item.label}
-            </Link>
+              {({ isActive }) => (
+                <>
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 rounded-full bg-secondary"
+                      transition={{ type: "spring", stiffness: 400, damping: 34 }}
+                    />
+                  )}
+                  <span className="relative">{item.label}</span>
+                </>
+              )}
+            </NavLink>
           ))}
+          <div className="w-px h-5 bg-border mx-2" />
+          <ThemeToggle />
         </div>
 
-        {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
+        <div className="flex md:hidden items-center gap-1">
+          <ThemeToggle />
+          <button
+            className="w-9 h-9 inline-flex items-center justify-center rounded-full text-foreground hover:bg-secondary"
+            onClick={() => setIsOpen((o) => !o)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-card/95 backdrop-blur-md border-b border-border overflow-hidden"
+            transition={{ duration: 0.2 }}
+            className="md:hidden overflow-hidden border-t border-border"
           >
-            <div className="px-6 py-4 flex flex-col gap-3">
-              {navItems.map((item) => (
-                <Link
+            <div className="container-page py-3 flex flex-col">
+              {[{ label: "Home", path: "/" }, ...navItems].map((item) => (
+                <NavLink
                   key={item.path}
                   to={item.path}
-                  className={`text-sm font-medium py-2 transition-colors ${
-                    location.pathname === item.path ? "text-accent" : "text-muted-foreground"
-                  }`}
+                  end
+                  className={({ isActive }) =>
+                    `py-3 text-lg font-serif border-b border-border last:border-0 ${
+                      isActive ? "text-accent" : "text-foreground"
+                    }`
+                  }
                 >
                   {item.label}
-                </Link>
+                </NavLink>
               ))}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 };
 

@@ -1,36 +1,32 @@
 import { motion } from "framer-motion";
 
 interface PageHeroProps {
+  eyebrow: string;
   title: string;
-  subtitle: string;
   description?: string;
 }
 
-const PageHero = ({ title, subtitle, description }: PageHeroProps) => (
-  <div className="bg-gradient-to-br from-primary via-navy-light to-navy py-20 px-6 md:px-12">
-    <div className="max-w-7xl mx-auto">
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        className="text-accent text-sm font-medium uppercase tracking-widest mb-3"
-      >
-        {subtitle}
+const PageHero = ({ eyebrow, title, description }: PageHeroProps) => (
+  <div className="relative graph-paper border-b border-border">
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background pointer-events-none" />
+    <div className="container-page relative pt-32 pb-14 sm:pt-40 sm:pb-20">
+      <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="eyebrow mb-4">
+        {eyebrow}
       </motion.p>
       <motion.h1
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4"
+        transition={{ delay: 0.05 }}
+        className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[1.02] tracking-tight text-foreground max-w-4xl"
       >
         {title}
       </motion.h1>
       {description && (
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="text-primary-foreground/70 max-w-2xl text-lg leading-relaxed"
+          transition={{ delay: 0.1 }}
+          className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed"
         >
           {description}
         </motion.p>

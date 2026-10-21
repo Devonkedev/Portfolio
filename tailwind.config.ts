@@ -15,16 +15,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Montserrat", "system-ui", "sans-serif"],
-        display: ["Montserrat", "system-ui", "sans-serif"],
-      },
-      fontWeight: {
-        thin: "200",
-        light: "300",
-        normal: "300",
-        medium: "400",
-        semibold: "500",
-        bold: "600",
+        sans: ["Geist", "system-ui", "sans-serif"],
+        serif: ["\"Instrument Serif\"", "Georgia", "serif"],
+        mono: ["\"Geist Mono\"", "ui-monospace", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,16 +53,7 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        navy: {
-          DEFAULT: "hsl(var(--navy))",
-          light: "hsl(var(--navy-light))",
-          muted: "hsl(var(--navy-muted))",
-        },
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          foreground: "hsl(var(--gold-foreground))",
-        },
-        "slate-blue": "hsl(var(--slate-blue))",
+        highlight: "hsl(var(--highlight))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
