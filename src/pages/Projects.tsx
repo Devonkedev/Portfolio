@@ -7,18 +7,15 @@ import { projects } from "@/data/profile";
 const Projects = () => (
   <PageLayout title="Projects">
     <PageHero
-      eyebrow="Software · Performance · Web"
+      eyebrow="Software · Performance"
       title="Projects"
-      description="A health app used in rural clinics, a math-magic act where every trick comes with a proof, and a nonprofit's first website."
+      description="A health app used in rural clinics, and a math-magic act where every trick comes with a proof."
     />
     <Section>
-      <div className="grid lg:grid-cols-2 gap-5">
-        <Reveal className="lg:col-span-2">
-          <ProjectCard project={projects[0]} featured />
-        </Reveal>
-        {projects.slice(1).map((p, i) => (
+      <div className="grid gap-5">
+        {projects.map((p, i) => (
           <Reveal key={p.name} delay={i * 0.06}>
-            <ProjectCard project={p} />
+            <ProjectCard project={p} featured />
           </Reveal>
         ))}
       </div>

@@ -23,7 +23,7 @@ const Awards = () => (
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {featuredAwards.map((a, i) => (
           <Reveal key={a.title} delay={i * 0.04}>
-            <div className="h-full rounded-xl border border-border bg-card p-6">
+            <div className="spotlight h-full rounded-xl border border-border bg-card/80 backdrop-blur-md p-6">
               <span className="font-mono text-xs text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-3 text-lg font-medium leading-snug text-foreground">{a.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{a.detail}</p>
@@ -37,7 +37,7 @@ const Awards = () => (
       <SectionHeading index="2" title="Standardized tests" />
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
         {tests.map((t) => (
-          <div key={t.name} className="rounded-xl border border-border bg-card p-5">
+          <div key={t.name} className="spotlight rounded-xl border border-border bg-card/80 backdrop-blur-md p-5">
             <p className="eyebrow">{t.name}</p>
             <p className="font-serif text-5xl leading-none mt-3 text-foreground">{t.score}</p>
             <p className="mt-2 text-xs text-muted-foreground">{t.detail}</p>
@@ -53,7 +53,7 @@ const Awards = () => (
           <SectionHeading index="3" title="Mathematics" />
           <ul className="divide-y divide-border border-y border-border">
             {mathHonors.map((m) => (
-              <li key={m.event} className="py-4 flex flex-wrap justify-between gap-x-6 gap-y-1">
+              <li key={m.event} className="group py-4 flex flex-wrap justify-between gap-x-6 gap-y-1 transition-[padding] duration-300 hover:pl-2">
                 <span className="text-foreground">{m.event}</span>
                 <span className="text-sm font-medium text-accent">{m.result}</span>
               </li>
@@ -68,8 +68,8 @@ const Awards = () => (
           />
           <ul className="divide-y divide-border border-y border-border">
             {techPodiums.map((t, i) => (
-              <li key={`${t.event}-${i}`} className="py-4 flex items-center gap-4">
-                <span className={`font-mono text-xs w-11 text-center py-1 rounded-md ${placeStyle[t.place as 1 | 2 | 3]}`}>
+              <li key={`${t.event}-${i}`} className="group py-4 flex items-center gap-4 transition-[padding] duration-300 hover:pl-2">
+                <span className={`font-mono text-xs w-11 text-center py-1 rounded-md transition-transform duration-300 group-hover:scale-110 ${placeStyle[t.place as 1 | 2 | 3]}`}>
                   {placeLabel[t.place as 1 | 2 | 3]}
                 </span>
                 <span className="text-foreground flex-1">{t.event}</span>
@@ -85,7 +85,7 @@ const Awards = () => (
       <SectionHeading index="5" title="School honors" kicker="The Shri Ram School, Moulsari Avenue." />
       <div className="grid md:grid-cols-3 gap-4">
         {schoolHonors.map((y) => (
-          <div key={y.year} className="rounded-xl border border-border bg-card p-6">
+          <div key={y.year} className="spotlight rounded-xl border border-border bg-card/80 backdrop-blur-md p-6">
             <p className="font-mono text-xs text-muted-foreground">{y.year}</p>
             <dl className="mt-4 space-y-4 text-sm">
               <div>

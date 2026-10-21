@@ -7,16 +7,16 @@ interface PageHeroProps {
 }
 
 const PageHero = ({ eyebrow, title, description }: PageHeroProps) => (
-  <div className="relative graph-paper border-b border-border">
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background pointer-events-none" />
+  <div className="relative border-b border-border overflow-hidden">
+    <div className="absolute inset-0 graph-paper [mask-image:linear-gradient(to_bottom,black,transparent)] pointer-events-none" />
     <div className="container-page relative pt-32 pb-14 sm:pt-40 sm:pb-20">
       <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="eyebrow mb-4">
         {eyebrow}
       </motion.p>
       <motion.h1
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.05 }}
+        initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{ delay: 0.05, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className="font-serif text-5xl sm:text-6xl md:text-7xl leading-[1.02] tracking-tight text-foreground max-w-4xl"
       >
         {title}

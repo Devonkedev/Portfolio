@@ -2,19 +2,21 @@ import PageLayout from "@/components/PageLayout";
 import PageHero from "@/components/PageHero";
 import Section, { Reveal } from "@/components/Section";
 import { leadership } from "@/data/profile";
+import { ExternalLink } from "@/components/Cards";
+import { CountUp } from "@/components/Motion";
 
 const Leadership = () => (
   <PageLayout title="Leadership & Service">
     <PageHero
       eyebrow="Teaching · Organizing · Service"
       title="Leadership & Service"
-      description="I teach olympiad math, run my school's tech society, and fundraise for STEM education."
+      description="I teach olympiad math, run my school's tech society, fundraise for STEM education, and built a nonprofit's first website."
     />
     <Section>
       <div className="space-y-5">
         {leadership.map((r, i) => (
           <Reveal key={r.org} delay={i * 0.05}>
-            <article className="rounded-2xl border border-border bg-card p-6 sm:p-8 grid md:grid-cols-[1fr_200px] gap-8">
+            <article className="spotlight rounded-2xl border border-border bg-card/80 backdrop-blur-md p-6 sm:p-8 grid md:grid-cols-[1fr_200px] gap-8">
               <div>
                 <p className="font-mono text-xs text-muted-foreground">{r.period}</p>
                 <h2 className="mt-2 font-serif text-3xl sm:text-4xl leading-tight text-foreground">{r.org}</h2>
@@ -28,9 +30,16 @@ const Leadership = () => (
                     </li>
                   ))}
                 </ul>
+                {r.link && (
+                  <div className="mt-5">
+                    <ExternalLink href={r.link.href}>{r.link.label}</ExternalLink>
+                  </div>
+                )}
               </div>
               <div className="md:border-l border-t md:border-t-0 border-border pt-6 md:pt-0 md:pl-8 flex md:flex-col md:justify-center gap-3 items-baseline md:items-start">
-                <p className="font-serif text-5xl sm:text-6xl leading-none text-foreground">{r.metric.value}</p>
+                <p className="font-serif text-5xl sm:text-6xl leading-none text-foreground">
+                  {r.metric.value.includes("→") ? r.metric.value : <CountUp value={r.metric.value} />}
+                </p>
                 <p className="text-sm text-muted-foreground">{r.metric.label}</p>
               </div>
             </article>

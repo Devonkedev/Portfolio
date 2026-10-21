@@ -3,7 +3,9 @@
 
 export const profile = {
   name: "Devyansh Garg",
-  tagline: "Mathematics, computation, and software that reaches real people.",
+  tagline: "Number theorist in training. App builder. Math magician.",
+  intro:
+    "I test conjectures about prime numbers on billions of data points, build health software that rural clinics actually use, and perform math magic where every trick comes with a proof.",
   school: "The Shri Ram School, Moulsari Avenue",
   location: "Gurugram, India",
   email: "gargdevyansh10@gmail.com",
@@ -11,10 +13,33 @@ export const profile = {
   github: "https://github.com/Devonkedev",
   youtube: "https://www.youtube.com/channel/UC7Dh2LP24J_oDnBc6l5OM2g",
   about: [
-    "I'm a Grade 12 IB Diploma student at The Shri Ram School, Gurugram. Most of what I do sits where number theory meets computation: I've sieved billions of primes to test conjectures about how they're distributed, and I write proofs that a computer can check in Lean.",
-    "I also like building things people use. MediPing, the medication-adherence app I built for rural community health workers, now tracks 232 patients across 12 villages. I published a financial-literacy book at 13, I teach olympiad math to students in five countries, and I perform a math-magic act where every trick comes with a proof.",
+    "I like questions where a clean idea runs into messy data. In number theory, that means taking a conjecture about primes, generating billions of them, and finding exactly where theory and reality part ways, and why. In Lean, it means writing proofs precise enough that a computer can check every step.",
+    "I also care whether the math leaves the page. MediPing, the app I built for ASHA community health workers, now tracks 232 patients across 12 villages, and missed doses have dropped by 30%. I wrote Money Mechanics at 13 to make personal finance less intimidating for people my age, and every week I teach olympiad math to students in five countries.",
   ],
 };
+
+export const threads = [
+  {
+    label: "Research",
+    title: "Prime numbers, at scale",
+    detail: "3 published papers · 4.1B primes sieved · proofs formalized in Lean",
+    path: "/research",
+  },
+  {
+    label: "Build",
+    title: "Software with real users",
+    detail: "MediPing on the App Store & Google Play · 232 patients in 12 villages",
+    path: "/projects",
+  },
+  {
+    label: "Teach",
+    title: "Math for everyone",
+    detail: "20+ olympiad students in 5+ countries · ₹1.75L raised for STEM",
+    path: "/leadership",
+  },
+];
+
+export const venues = ["IJMTT", "NHSJS", "IRJET", "Academic Foundation"];
 
 export const stats = [
   { value: "4", label: "Publications", note: "3 papers · 1 book" },
@@ -146,18 +171,6 @@ export const projects: Project[] = [
     ],
     links: [{ label: "YouTube", href: "https://www.youtube.com/channel/UC7Dh2LP24J_oDnBc6l5OM2g" }],
   },
-  {
-    name: "STEAM IT Foundation Website",
-    role: "Founder's Office · Software Engineering Intern (Web)",
-    summary:
-      "I was the only developer on the first website for a nonprofit that runs STEM programs for schools in 12 states. It has a responsive, semantic layout and a program-application flow, and it's live on the foundation's domain.",
-    impact: [
-      { value: "61→96", label: "accessibility score" },
-      { value: "12", label: "states served" },
-    ],
-    stack: ["HTML", "CSS", "JavaScript"],
-    links: [{ label: "steamit.org", href: "https://www.steamit.org/" }],
-  },
 ];
 
 export const programs = [
@@ -246,6 +259,19 @@ export const leadership = [
       "Raised INR 1,75,000 to pay for olympiad prep and resources at the State Library",
     ],
     metric: { value: "₹1.75L", label: "raised" },
+  },
+  {
+    org: "STEAM IT Foundation",
+    orgNote: "Nonprofit delivering STEM education programs to school students in 12 states",
+    role: "Founder's Office · Software Engineering Intern (Web)",
+    period: "Internship",
+    points: [
+      "Sole developer of the foundation's first website, with a responsive, semantic layout",
+      "Raised the site's accessibility score from 61 to 96",
+      "Built the program-application flow and deployed it on the foundation's live domain",
+    ],
+    metric: { value: "61→96", label: "accessibility score" },
+    link: { label: "steamit.org", href: "https://www.steamit.org/" },
   },
 ];
 

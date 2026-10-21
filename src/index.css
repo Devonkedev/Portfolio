@@ -40,6 +40,10 @@
     --radius: 0.75rem;
 
     --grid-line: 225 20% 11% / 0.05;
+    --nebula-1: 226 90% 68% / 0.22;
+    --nebula-2: 275 80% 70% / 0.17;
+    --nebula-3: 32 95% 62% / 0.14;
+    --star: 225 30% 25%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -72,7 +76,11 @@
     --border: 225 10% 19%;
     --input: 225 10% 19%;
     --ring: 226 92% 70%;
-    --grid-line: 40 20% 93% / 0.05;
+    --grid-line: 40 20% 93% / 0.035;
+    --nebula-1: 226 90% 55% / 0.20;
+    --nebula-2: 275 75% 55% / 0.16;
+    --nebula-3: 200 90% 50% / 0.10;
+    --star: 40 40% 96%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -127,4 +135,109 @@
   .link-underline {
     @apply underline decoration-accent/40 underline-offset-4 hover:decoration-accent transition-colors;
   }
+}
+
+/* ---------- Cosmic background ---------- */
+.nebula {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+.nebula-1 {
+  width: 55vmax; height: 55vmax; top: -18vmax; right: -12vmax;
+  background: radial-gradient(circle, hsl(var(--nebula-1)), transparent 65%);
+  animation: drift-a 38s ease-in-out infinite alternate;
+}
+.nebula-2 {
+  width: 45vmax; height: 45vmax; top: 35vh; left: -16vmax;
+  background: radial-gradient(circle, hsl(var(--nebula-2)), transparent 65%);
+  animation: drift-b 46s ease-in-out infinite alternate;
+}
+.nebula-3 {
+  width: 40vmax; height: 40vmax; bottom: -16vmax; right: 10vw;
+  background: radial-gradient(circle, hsl(var(--nebula-3)), transparent 65%);
+  animation: drift-a 52s ease-in-out infinite alternate-reverse;
+}
+@keyframes drift-a {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-6vw, 5vh, 0) scale(1.12); }
+}
+@keyframes drift-b {
+  from { transform: translate3d(0, 0, 0) scale(1.05); }
+  to { transform: translate3d(7vw, -6vh, 0) scale(0.95); }
+}
+
+/* ---------- Interactive cards: cursor spotlight + glowing border ---------- */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.35s;
+}
+.spotlight::before,
+.spotlight::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+.spotlight::before {
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(480px circle at var(--mx, 50%) var(--my, 50%), hsl(var(--accent) / 0.09), transparent 45%);
+}
+.spotlight::after {
+  inset: -1px;
+  padding: 1px;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), hsl(var(--accent) / 0.7), transparent 45%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.spotlight:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 48px -28px hsl(var(--accent) / 0.45);
+}
+.spotlight:hover::before,
+.spotlight:hover::after {
+  opacity: 1;
+}
+
+/* ---------- Buttons ---------- */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, hsl(0 0% 100% / 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-shine:hover::after {
+  transform: translateX(120%);
+}
+.dark .btn-shine::after {
+  background: linear-gradient(115deg, transparent 30%, hsl(226 92% 70% / 0.35) 50%, transparent 70%);
+}
+
+/* Underline that grows from the left */
+.link-grow {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-grow:hover {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nebula { animation: none; }
+  .spotlight:hover { transform: none; }
 }

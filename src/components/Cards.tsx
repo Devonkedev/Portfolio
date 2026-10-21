@@ -6,10 +6,13 @@ export const ExternalLink = ({ href, children }: { href: string; children: React
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:gap-1.5 transition-all"
+    className="group/link inline-flex items-center gap-1 text-sm font-medium text-accent"
   >
-    {children}
-    <ArrowUpRight size={14} />
+    <span className="link-grow">{children}</span>
+    <ArrowUpRight
+      size={14}
+      className="transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:rotate-12"
+    />
   </a>
 );
 
@@ -24,8 +27,12 @@ interface PublicationItemProps {
 }
 
 export const PublicationItem = ({ pub, index, detailed = false }: PublicationItemProps) => (
-  <article className="group grid sm:grid-cols-[4.5rem_1fr] gap-x-6 gap-y-3 py-8 border-t border-border first:border-t-0 sm:first:border-t">
-    <div className="font-mono text-sm text-muted-foreground pt-1">[{String(index + 1).padStart(2, "0")}]</div>
+  <article className="group relative grid sm:grid-cols-[4.5rem_1fr] gap-x-6 gap-y-3 py-8 border-t border-border">
+    <span
+      aria-hidden
+      className="absolute left-0 top-[-1px] h-px w-0 bg-accent transition-[width] duration-700 ease-out group-hover:w-full"
+    />
+    <div className="font-mono text-sm text-muted-foreground pt-1 transition-colors group-hover:text-accent">[{String(index + 1).padStart(2, "0")}]</div>
     <div className="min-w-0">
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
         <span
@@ -37,7 +44,7 @@ export const PublicationItem = ({ pub, index, detailed = false }: PublicationIte
         </span>
         <span className="text-xs text-muted-foreground">{pub.date}</span>
       </div>
-      <h3 className="font-serif text-2xl sm:text-[1.75rem] leading-snug text-foreground">{pub.title}</h3>
+      <h3 className="font-serif text-2xl sm:text-[1.75rem] leading-snug text-foreground transition-transform duration-500 group-hover:translate-x-1">{pub.title}</h3>
       <p className="mt-1 text-sm text-muted-foreground">
         {pub.venue} · {pub.role}
       </p>
@@ -66,7 +73,7 @@ export const PublicationItem = ({ pub, index, detailed = false }: PublicationIte
 
 export const ProjectCard = ({ project, featured = false }: { project: Project; featured?: boolean }) => (
   <article
-    className={`h-full rounded-2xl border border-border bg-card p-6 sm:p-8 flex flex-col hover:border-foreground/20 transition-colors ${
+    className={`spotlight h-full rounded-2xl border border-border bg-card/80 backdrop-blur-md p-6 sm:p-8 flex flex-col ${
       featured ? "lg:p-10" : ""
     }`}
   >
@@ -82,7 +89,7 @@ export const ProjectCard = ({ project, featured = false }: { project: Project; f
       }`}
     >
       {project.impact.map((m) => (
-        <div key={m.label} className="bg-card p-4">
+        <div key={m.label} className="bg-card p-4 transition-colors hover:bg-secondary">
           <dt className="sr-only">{m.label}</dt>
           <dd className={`font-serif leading-none text-foreground ${featured ? "text-4xl" : "text-3xl"}`}>{m.value}</dd>
           <dd className="mt-1.5 text-xs text-muted-foreground">{m.label}</dd>

@@ -2,29 +2,29 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Github, Mail, Phone, Youtube } from "lucide-react";
 import { profile } from "@/data/profile";
 import { navItems } from "./Navbar";
+import { ActionLink } from "./Motion";
 
 const Footer = () => (
-  <footer className="border-t border-border mt-24">
+  <footer className="border-t border-border mt-24 bg-background/60 backdrop-blur-sm">
     <div className="container-page py-16 grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
       <div>
         <p className="font-serif text-3xl sm:text-4xl leading-tight text-foreground max-w-md">
           Want to talk about primes, proofs, or products?
         </p>
-        <a
-          href={`mailto:${profile.email}`}
-          className="mt-6 inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:opacity-90 transition-opacity"
-        >
-          <Mail size={15} /> Get in touch
-        </a>
+        <div className="mt-6">
+          <ActionLink href={`mailto:${profile.email}`}>
+            <Mail size={15} className="group-hover:-rotate-12 transition-transform" /> Get in touch
+          </ActionLink>
+        </div>
       </div>
 
       <div>
         <p className="eyebrow mb-4">Pages</p>
         <ul className="space-y-2.5 text-sm">
-          <li><Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link></li>
+          <li><Link to="/" className="link-grow text-muted-foreground hover:text-foreground transition-colors">Home</Link></li>
           {navItems.map((n) => (
             <li key={n.path}>
-              <Link to={n.path} className="text-muted-foreground hover:text-foreground transition-colors">{n.label}</Link>
+              <Link to={n.path} className="link-grow text-muted-foreground hover:text-foreground transition-colors">{n.label}</Link>
             </li>
           ))}
         </ul>

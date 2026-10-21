@@ -28,7 +28,7 @@ const Research = () => (
       <ol className="relative border-l border-border ml-1.5 space-y-10">
         {programs.map((p) => (
           <li key={p.title} className="pl-8 relative">
-            <span className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-background border-2 border-accent" />
+            <span className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-background border-2 border-accent shadow-[0_0_0_4px_hsl(var(--accent)/0.12)]" />
             <Reveal>
               <p className="font-mono text-xs text-muted-foreground">{p.date}</p>
               <h3 className="mt-1 text-xl font-medium text-foreground">{p.title}</h3>
@@ -44,7 +44,7 @@ const Research = () => (
       <SectionHeading index="3" title="Toolkit" />
       <div className="grid sm:grid-cols-3 gap-5">
         {Object.entries(skills).map(([group, items]) => (
-          <div key={group} className="rounded-xl border border-border bg-card p-6">
+          <div key={group} className="spotlight rounded-xl border border-border bg-card/80 backdrop-blur-md p-6">
             <p className="eyebrow mb-4">{group}</p>
             <ul className="space-y-2">
               {items.map((s) => (

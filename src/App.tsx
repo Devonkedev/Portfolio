@@ -11,8 +11,15 @@ import Projects from "./pages/Projects";
 import Leadership from "./pages/Leadership";
 import Awards from "./pages/Awards";
 import NotFound from "./pages/NotFound";
+import CosmicBackground from "./components/CosmicBackground";
+import { usePointerSpotlight } from "./components/Motion";
 
 const queryClient = new QueryClient();
+
+const GlobalEffects = () => {
+  usePointerSpotlight();
+  return <CosmicBackground />;
+};
 
 const App = () => (
   <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
@@ -21,6 +28,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <GlobalEffects />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />

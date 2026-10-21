@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
 export const navItems = [
@@ -15,6 +15,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 8);
@@ -38,8 +40,14 @@ const Navbar = () => {
         scrolled || isOpen ? "bg-background/85 backdrop-blur-md border-border" : "bg-transparent border-transparent"
       }`}
     >
+      <motion.div
+        aria-hidden
+        style={{ scaleX: progress }}
+        className="absolute bottom-[-1px] left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-accent via-[hsl(275_75%_60%)] to-highlight"
+      />
       <nav className="container-page flex items-center justify-between h-16" aria-label="Main">
-        <Link to="/" className="flex items-baseline gap-2 group" aria-label="Devyansh Garg, home">
+        <Link to="/" className="flex items-center gap-2.5 group" aria-label="Devyansh Garg, home">
+          <span className="w-2 h-2 rounded-full bg-accent shadow-[0_0_12px_2px_hsl(var(--accent)/0.6)] group-hover:scale-150 transition-transform duration-300" />
           <span className="font-serif text-2xl leading-none text-foreground">Devyansh Garg</span>
         </Link>
 
