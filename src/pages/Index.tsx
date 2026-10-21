@@ -52,7 +52,7 @@ const Index = () => (
             <ActionLink to="/research">
               Read my research <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
             </ActionLink>
-            <ActionLink href={`mailto:${profile.email}`} variant="outline">
+            <ActionLink to="/contact" variant="outline">
               <Mail size={15} className="group-hover:-rotate-12 transition-transform duration-300" /> Say hello
             </ActionLink>
           </motion.div>

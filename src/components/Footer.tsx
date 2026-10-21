@@ -12,7 +12,7 @@ const Footer = () => (
           Want to talk about primes, proofs, or products?
         </p>
         <div className="mt-6">
-          <ActionLink href={`mailto:${profile.email}`}>
+          <ActionLink to="/contact">
             <Mail size={15} className="group-hover:-rotate-12 transition-transform" /> Get in touch
           </ActionLink>
         </div>

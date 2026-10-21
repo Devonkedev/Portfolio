@@ -10,6 +10,7 @@ import Research from "./pages/Research";
 import Projects from "./pages/Projects";
 import Leadership from "./pages/Leadership";
 import Awards from "./pages/Awards";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import CosmicBackground from "./components/CosmicBackground";
 import { usePointerSpotlight } from "./components/Motion";
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/projects" element={<Projects />} />
             <Route path="/leadership" element={<Leadership />} />
             <Route path="/awards" element={<Awards />} />
+            <Route path="/contact" element={<Contact />} />
             {/* Old URL kept working for anyone with the previous link */}
             <Route path="/extracurricular" element={<Navigate to="/projects" replace />} />
             <Route path="*" element={<NotFound />} />
