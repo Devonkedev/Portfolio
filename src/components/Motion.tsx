@@ -66,7 +66,7 @@ export const ActionLink = ({ children, to, href, variant = "solid" }: ActionLink
   );
 };
 
-/* Counts up from 0 to the numeric part of `value` ("4.1B", "1550", "232") once scrolled into view. */
+/* Counts up from 0 to the numeric part of `value` ("4.1B", "1550", "500+") once scrolled into view. */
 export const CountUp = ({ value, className = "" }: { value: string; className?: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });

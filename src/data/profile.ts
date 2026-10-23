@@ -3,7 +3,7 @@
 
 export const profile = {
   name: "Devyansh Garg",
-  tagline: "Number theorist in training. App builder. Math magician.",
+  tagline: "Math Mentalist. App Developer. Published Researcher.",
   intro:
     "I test conjectures about prime numbers on billions of data points, build health software that rural clinics actually use, and perform math magic where every trick comes with a proof.",
   school: "The Shri Ram School, Moulsari Avenue",
@@ -14,7 +14,7 @@ export const profile = {
   youtube: "https://www.youtube.com/channel/UC7Dh2LP24J_oDnBc6l5OM2g",
   about: [
     "I like questions where a clean idea runs into messy data. In number theory, that means taking a conjecture about primes, generating billions of them, and finding exactly where theory and reality part ways, and why. In Lean, it means writing proofs precise enough that a computer can check every step.",
-    "I also care whether the math leaves the page. MediPing, the app I built for ASHA community health workers, now tracks 232 patients across 12 villages, and missed doses have dropped by 30%. I wrote Money Mechanics at 13 to make personal finance less intimidating for people my age, and every week I teach olympiad math to students in five countries.",
+    "I also care whether the math leaves the page. MediPing, the app I built for ASHA community health workers, now has 500+ users across 12 villages, and missed doses have dropped by 30%. I wrote Money Mechanics at 13 to make personal finance less intimidating for people my age, and every week I teach olympiad math to students in five countries.",
   ],
 };
 
@@ -28,7 +28,7 @@ export const threads = [
   {
     label: "Build",
     title: "Software with real users",
-    detail: "MediPing on the App Store & Google Play · 232 patients in 12 villages",
+    detail: "MediPing on the App Store & Google Play · 500+ users in 12 villages",
     path: "/projects",
   },
   {
@@ -44,7 +44,7 @@ export const venues = ["IJMTT", "NHSJS", "IRJET", "Academic Foundation"];
 export const stats = [
   { value: "4", label: "Publications", note: "3 papers · 1 book" },
   { value: "1550", label: "SAT", note: "790 Math" },
-  { value: "232", label: "Patients on MediPing", note: "7 clinics · 12 villages" },
+  { value: "500+", label: "Users on MediPing", note: "7 clinics · 12 villages" },
   { value: "4.1B", label: "Primes sieved", note: "for the LOS-bias study" },
 ];
 
@@ -94,6 +94,8 @@ export const publications: Publication[] = [
       "Unusually large gaps become rarer as numbers grow, consistent with Cramér's model",
     ],
     tags: ["Number theory", "Data analysis"],
+    link: "https://nhsjs.com/2026/computational-analysis-of-prime-gaps-testing-cramers-and-hardy-littlewoods-conjectures-on-finite-ranges/",
+    linkLabel: "Read the paper",
   },
   {
     title: "Predicting COVID-19 Hotspots Using Google Trends: A Correlation Analysis of Search Terms and Case Data in India",
@@ -150,7 +152,7 @@ export const projects: Project[] = [
       "A medication-adherence app for rural ASHA (community health) workers, patients and clinics. Caregivers use it to track doses and check-ups for the patients they look after.",
     impact: [
       { value: "−30%", label: "missed doses" },
-      { value: "232", label: "patients" },
+      { value: "500+", label: "users" },
       { value: "7", label: "clinics" },
       { value: "12", label: "villages" },
     ],
