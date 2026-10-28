@@ -279,6 +279,10 @@ export const leadership = [
 
 export const featuredAwards = [
   {
+    title: "UKMT Senior Mathematical Challenge: Gold, 125/125",
+    detail: "A perfect score on the UK Mathematics Trust's Senior Mathematical Challenge",
+  },
+  {
     title: "AMC 10 Distinction & AIME Qualifier",
     detail: "Also IOQM Distinction (top 10%) and Rank 1 in the Cathedral Math Competition",
   },
@@ -301,6 +305,7 @@ export const featuredAwards = [
 ];
 
 export const mathHonors = [
+  { event: "UKMT Senior Mathematical Challenge (SMC)", result: "Gold · 125/125" },
   { event: "AMC 10", result: "Distinction · AIME Qualifier" },
   { event: "IOQM", result: "Top 10%" },
   { event: "Cathedral Math Competition (CMC)", result: "Rank 1 · Distinction" },
